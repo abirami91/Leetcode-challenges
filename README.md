@@ -2,7 +2,7 @@
   This project is mainly for solving leetcode challenges and discussing solutions. You could also create a pipeline and run it(optional).
 
 # Prerequisites
-  * Choose any language of your (C++, C, python, Rust)
+  * Choose any language of your choice (C++, C, python, Rust)
   * Choose your favorite IDE for this
   * Create a unittest case to see if it also runs on the pipeline with a report
   * Create a Pull request and add your reviewers
