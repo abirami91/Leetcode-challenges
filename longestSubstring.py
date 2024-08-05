@@ -1,8 +1,12 @@
 class Solution:
     def lengthOfLongestSubstring(self, s):
         """
-        :type s: str
-        :rtype: int
+        The lengthOfLongestSubstring method calculates the length of the longest substring in the input string s
+        that does not contain any repeating characters.
+
+        Args: str s.
+
+        return: An integer res containing maximum value of substring.
         """
         # Initialize the set to keep track of unique characters
         charSet = set()
