@@ -1,32 +1,64 @@
-# Leetcode-challenges
-  This project is mainly for solving leetcode challenges and discussing solutions. You could also create a pipeline and run it(optional).
+# Length of Longest Substring Without Repeating Characters
+  This Python project contains a class Solution that provides a method to find the length of the longest substring without repeating characters in a given string.
 
-# Prerequisites
-  * Choose any language of your choice (C++, C, python, Rust)
-  * Choose your favorite IDE for this
-  * Create a unittest case to see if it also runs on the pipeline with a report
-  * Create a Pull request and add your reviewers
+# Class solution
+# Method: lengthOfLongestSubstring(self, s: str) -> int
+    The lengthOfLongestSubstring method calculates the length of the longest substring in the input string s that does not contain any repeating characters.
+# Parameters
+    s (str): The input string in which to find the longest substring   without repeating characters.
 
-# Problem description
-  Given a string s, find the length of the longest substring without repeating characters.
+# Returns
+    int: The length of the longest substring without repeating characters.
 
-# Example 1:
-  * Input: s = "abcabcbb"
-  * Output: 3
-  * Explanation: The answer is "abc", with the length of 3.
-
-# Example 2:
-  * Input: s = "bbbbb"
-  * Output: 1
-  * Explanation: The answer is "b", with the length of 1.
+# How it works:
+  * Initialization:
+    A set charSet is used to track the unique characters in the current substring.
+    Two pointers l (left) and r (right) are used to define the sliding window in the string.
+    A variable res is used to keep track of the maximum length of the substring found.
+  * Sliding Window:
+    The right pointer r moves through each character in the string.
+    If a duplicate character is found, the left pointer l is moved to shrink the window until the duplicate character is removed.
+    The maximum length of the current window (r - l + 1) is calculated and stored in res.
+  * Result:
+    The method returns the maximum length of the substring without repeating characters.
     
-# Example 3:
+# How to run:
+  * To run locally use git clone and redirect to the folder and run the python file directly 
+   ```bash
+    python longestSubstring.py
+  ```
 
-  * Input: s = "pwwkew"
-  * Output: 3
-  * Explanation: The answer is "wke", with the length of 3.
-  * Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+  * To run in docker
+   1. Please install docker desktop 
+  ```
+    https://www.docker.com/products/docker-desktop/
+  ```
 
-# Constraints:
-  * 0 <= s.length <= 5 * 104
-  * s consists of English letters, digits, symbols and spaces.
+   2. checkout the Dockerfile provided in the projectdirectory for reference
+   ```
+    Dockerfile
+   ```
+
+   3. Build an image using the follwing command
+   ```
+    docker build -t python-docker-vscode . 
+   ```
+
+   4. Run the container using
+   ```
+    docker run python-docker-vscode
+   ```
+   
+   5. Running on a pipeline: Please refer to
+   ```
+    docker-python.yml
+   ```
+
+# References
+  * https://www.geeksforgeeks.org/window-sliding-technique/
+  * https://realpython.com/python-sets/
+  * https://docs.github.com/en/actions
+
+# Contributions
+    Feel free to contribute to the repository if interested, other approaches/languages appreciated.
+    https://github.com/abirami91/Leetcode-challenges/tree/main.
