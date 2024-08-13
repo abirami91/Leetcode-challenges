@@ -30,16 +30,11 @@ class solution:
 
     def has_unique_characters(self, sub_string):
         """
-
-
-
-
-
         The method evaluates unique characters in a substring.
 
         Args: sub_string{str}
 
-        Returns: Boolen False if repetative characters found else True
+        Returns: Boolen {False} if repetative characters found else {True}
         """
         # Initialize an empty dictionary to keep 
         # track of current character sin the substring
