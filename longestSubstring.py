@@ -1,39 +1,57 @@
-class Solution:
+class solution:
     def lengthOfLongestSubstring(self, s):
         """
-        The lengthOfLongestSubstring method calculates the length of the longest substring in the input string s
-        that does not contain any repeating characters.
+        The method calculates the longest substring without repeating characters.
 
-        Args: str s.
+        Args: s {str}
 
-        return: An integer res containing maximum value of substring.
+        Returns: Max_length: maximum length of teh unique substring {int}
         """
-        # Initialize the set to keep track of unique characters
-        charSet = set()
-        # Initialize the left pointer
-        l = 0
-        # Initialize the result variable to store the maximum length
-        res = 0
+        # variable to store the max length of the substring.
+        max_length = 0
 
-        # Iterate through the string using the right pointer `r`
-        for r in range(len(s)):
-            # If the character at `r` is already in the set, it means there is a duplicate
-            while s[r] in charSet:
-                # Remove the character at `l` from the set and move the left pointer `l`
-                charSet.remove(s[l])
-                l += 1
-            # Add the character at `r` to the set
-            charSet.add(s[r])
-            # Update the result with the maximum length of the current window
-            res = max(res, r - l + 1)
+        #iterate through all the characters of the string
+        for i in range(len(s)):
+            # inner loop to create all possible substrings
+            # starting from the current character (i) to the end of the substrings.
+            for j in range(i, len(s)):
+                # extract the substring from the current charcater i
+                # To the current inner loop index(j) and
+                # Store it in a substring varaible
+                substring = s[i:j+1]
+
+                #check if extracted substring has unique character
+                if self.has_unique_characters(substring):
+                    # if the substring has unique characters
+                    # Update the max_length with maximum length found so far.
+                    max_length = max(max_length, len(substring))
+        return max_length
+
+
+    def has_unique_characters(self, sub_string):
+        """
+        The method evaluates unique characters in a substring.
+
+        Args: sub_string{str}
+
+        Returns: Boolen {False} if repetative characters found else {True}
+        """
+        # Initialize an empty dictionary to keep 
+        # track of current character sin the substring
+        char_count = {}
+
+        # Loop through each character in the string
+        for char in sub_string:
+            # Update the count of current character in the cahracter dictionary.
+            char_count[char] = char_count.get(char, 0) + 1
+
+            # if the character count is greater than 1
+            # Then there is a repetative character.
+            if char_count[char] > 1:
+                return False
             
-        # Return the length of the longest substring without repeating characters
-        print("result: length of substring", s)
-        return res
+        return True
     
-    # Example usage and tests.
-solution = Solution()
-print(solution.lengthOfLongestSubstring("abcabcbb"))  # Output: 3
-print(solution.lengthOfLongestSubstring("bbbbb"))     # Output: 1
-print(solution.lengthOfLongestSubstring("pwwkew"))    # Output: 3
-print(solution.lengthOfLongestSubstring("")) 
+Solution = solution()
+print(Solution.lengthOfLongestSubstring("abcbabc"))
+print(Solution.lengthOfLongestSubstring("aaaa"))
